@@ -1,51 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    <title>Pokedex</title>
     <link rel="stylesheet" href="style.css" />
-    <title>Just another Pokédex</title>
   </head>
   <body>
-    <div id="app">
-      <div class="container">
-        <div class="pkheader">
-          <div class="topleft">
-            <img src="imgs/icon-pkdx.png" alt="pokedex icon" />
-            <span>Pokédex</span>
-          </div>
-          <div class="topcenter">
-            <img src="imgs/icon-pkdx-center.png" alt="sun icon" />
-          </div>
-          <div class="topright">
-            <i class="fa fa-sun-o"></i>
-            <div class="question-container">
-              <i
-                style="font-size: 22px"
-                class="fa fa-mouse-pointer"
-                alt="question icon"
-              ></i>
-              <i class="fa fa-question-circle" alt="question icon"></i>
-            </div>
-          </div>
-          <div class="divider"></div>
-        </div>
-        <div class="pkdisplay"></div>
-        <div class="pkfooter">
-          <div class="divider"></div>
+    <div class="container">
+      <input
+        type="text"
+        placeholder="Digite um pokemon e aperte enter"
+        id="nameInput"
+      />
+      <div class="info">
+        <h1 id="pkmName">Digite um pokemon</h1>
+        <p><span id="pkmId">e aperte enter!</span></p>
+        <img
+          id="pkmSprite"
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+          alt="sprite do pokemon"
+        />
+        <p>Status</p>
+        <div class="stats">
+          <span>HP</span>
+          <progress min="1" max="255" value="255" id="hp"></progress>
+          <span id="hpValue">0</span>
+          <span>Attack</span>
+          <progress min="1" max="255" value="255" id="attack"></progress>
+          <span id="attackValue">0</span>
+          <span>Defense</span>
+          <progress min="1" max="255" value="255" id="defense"></progress>
+          <span id="defenseValue">0</span>
+          <span>Sp. Attack</span>
+          <progress min="1" max="255" value="255" id="spAttack"></progress>
+          <span id="spAttackValue">0</span>
+          <span>Sp. Defense</span>
+          <progress min="1" max="255" value="255" id="spDefense"></progress>
+          <span id="spDefenseValue">0</span>
+          <span>Speed</span>
+          <progress min="1" max="255" value="255" id="speed"></progress>
+          <span id="speedValue">0</span>
         </div>
       </div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>
