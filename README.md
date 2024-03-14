@@ -1,1 +1,1 @@
-# pokedex
+# Minimalist Pokédex

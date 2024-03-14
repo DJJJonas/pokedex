@@ -20,15 +20,18 @@ body {
 
   padding: 60px;
 
-  font-family: "Poppins";
+  font-family: "Poppins", monospace;
 }
 
 #nameInput {
   color: white;
   background-color: #323636;
+  border-style: solid;
+  border-color: #535657;
   border-radius: 10px;
-  font-family: "Poppins";
-  font-size: 9pt;
+  font-family: "Poppins", monospace;
+  font-size: 11pt;
+  text-align: center;
   width: var(--width);
 }
 
@@ -36,10 +39,42 @@ body {
   outline: none;
 }
 
+#search {
+  cursor: pointer;
+
+  color: white;
+  background-color: #323636;
+
+  padding: 8px;
+  margin-top: 10px;
+
+  border-style: solid;
+  border-color: #535657;
+  border-radius: 10px;
+
+  font-family: "Poppins", monospace;
+  font-size: 11pt;
+
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+#search:hover {
+  opacity: 1;
+}
+
 .info > img {
-  background-color: white;
-  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 300px;
   width: var(--width);
+  transition: border-radius 0.2s, width 0.2s, margin 0.2s;
+}
+
+.info > img:hover {
+  border-radius: 10px;
+  width: calc(var(--width) + 20px);
+  margin: -10px;
+  cursor: pointer;
 }
 
 .stats {
@@ -52,6 +87,15 @@ body {
 .stats > progress {
   align-self: center;
   width: 100%;
+}
+
+#pkmName {
+  font-size: 32pt;
+  margin-top: 0;
+}
+
+#pkmId {
+  font-size: 16pt;
 }
 
 #hp {

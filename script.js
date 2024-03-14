@@ -1,6 +1,7 @@
 const url = "https://pokeapi.co/api/v2/pokemon";
 
 const nameInput = document.querySelector("#nameInput");
+const search = document.querySelector("#search");
 
 const pkmname = document.querySelector("#pkmName");
 const pkmid = document.querySelector("#pkmId");
@@ -22,7 +23,10 @@ const speedValue = document.querySelector("#speedValue");
 
 async function fetchPokemon(name) {
   const r = await fetch(`${url}/${name}`);
-  return await r.json();
+  if (r.status === 200) {
+    return r.json();
+  }
+  throw new Error("Pokemon não encontrado");
 }
 
 function title(string) {
@@ -33,6 +37,14 @@ function setPokemon(pokemon) {
   pkmname.innerText = title(pokemon.name);
   pkmid.innerText = "ID: " + pokemon.id;
   pkmsprite.src = pokemon.sprites.front_default;
+
+  pkmsprite.onclick = () => {
+    const cry = new Audio(
+      pokemon.cries.legacy ? pokemon.cries.legacy : pokemon.cries
+    );
+    cry.volume = 0.5;
+    cry.play();
+  };
 
   hp.value = pokemon.stats[0].base_stat;
   hpValue.innerText = pokemon.stats[0].base_stat;
@@ -48,13 +60,26 @@ function setPokemon(pokemon) {
   speedValue.innerText = pokemon.stats[5].base_stat;
 }
 
+function handleSearchPokemon(name) {
+  pkmname.innerText = "Carregando...";
+  pkmid.innerText = "só um segundo!";
+  fetchPokemon(name)
+    .then(setPokemon)
+    .catch((e) => {
+      pkmname.innerText = "Digite um pokemon";
+      pkmid.innerText = "e aperte enter!";
+      alert(e);
+    });
+}
+
 nameInput.onkeypress = (e) => {
   if (e.key === "Enter") {
-    const name = nameInput.value;
-    fetchPokemon(name)
-      .then(setPokemon)
-      .catch(() => {
-        alert("Pokémon não encontrado!");
-      });
+    const name = nameInput.value.toLowerCase();
+    handleSearchPokemon(name);
   }
+};
+
+search.onclick = () => {
+  const name = nameInput.value.toLowerCase();
+  handleSearchPokemon(name);
 };
