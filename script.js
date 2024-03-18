@@ -1,26 +1,5 @@
 const url = "https://pokeapi.co/api/v2/pokemon";
 
-const nameInput = document.querySelector("#nameInput");
-const search = document.querySelector("#search");
-
-const pkmname = document.querySelector("#pkmName");
-const pkmid = document.querySelector("#pkmId");
-const pkmsprite = document.querySelector("#pkmSprite");
-
-const hp = document.querySelector("#hp");
-const attack = document.querySelector("#attack");
-const defense = document.querySelector("#defense");
-const spAttack = document.querySelector("#spAttack");
-const spDefense = document.querySelector("#spDefense");
-const speed = document.querySelector("#speed");
-
-const hpValue = document.querySelector("#hpValue");
-const attackValue = document.querySelector("#attackValue");
-const defenseValue = document.querySelector("#defenseValue");
-const spAttackValue = document.querySelector("#spAttackValue");
-const spDefenseValue = document.querySelector("#spDefenseValue");
-const speedValue = document.querySelector("#speedValue");
-
 async function fetchPokemon(name) {
   const r = await fetch(`${url}/${name}`);
   if (r.status === 200) {
@@ -34,17 +13,17 @@ function title(string) {
 }
 
 function setPokemon(pokemon) {
-  pkmname.innerText = title(pokemon.name);
-  pkmid.innerText = "ID: " + pokemon.id;
-  pkmsprite.src = pokemon.sprites.front_default;
+  pkmName.innerText = title(pokemon.name);
+  pkmId.innerText = "ID: " + pokemon.id;
+  pkmSprite.src = pokemon.sprites.front_default;
 
-  pkmsprite.onclick = () => {
-    const cry = new Audio(
-      pokemon.cries.legacy ? pokemon.cries.legacy : pokemon.cries
-    );
-    cry.volume = 0.5;
-    cry.play();
-  };
+  // pkmSprite.onclick = () => {
+  //   const cry = new Audio(
+  //     pokemon.cries.legacy ? pokemon.cries.legacy : pokemon.cries
+  //   );
+  //   cry.volume = 0.5;
+  //   cry.play();
+  // };
 
   hp.value = pokemon.stats[0].base_stat;
   hpValue.innerText = pokemon.stats[0].base_stat;
@@ -61,13 +40,13 @@ function setPokemon(pokemon) {
 }
 
 function handleSearchPokemon(name) {
-  pkmname.innerText = "Carregando...";
-  pkmid.innerText = "só um segundo!";
+  pkmName.innerText = "Carregando...";
+  pkmId.innerText = "só um segundo!";
   fetchPokemon(name)
     .then(setPokemon)
     .catch((e) => {
-      pkmname.innerText = "Digite um pokemon";
-      pkmid.innerText = "e aperte enter!";
+      pkmName.innerText = "Digite um pokemon";
+      pkmId.innerText = "e aperte enter!";
       alert(e);
     });
 }
