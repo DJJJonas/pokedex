@@ -1,4 +1,5 @@
 body {
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +17,7 @@ body {
   text-align: center;
 
   background-color: #121415;
-  border-radius: 30px;
+  border-radius: 8px;
 
   padding: 60px;
 
@@ -28,7 +29,7 @@ body {
   background-color: #323636;
   border-style: solid;
   border-color: #535657;
-  border-radius: 10px;
+  border-radius: 8px;
   font-family: "Poppins", monospace;
   font-size: 11pt;
   text-align: center;
@@ -50,7 +51,7 @@ body {
 
   border-style: solid;
   border-color: #535657;
-  border-radius: 10px;
+  border-radius: 8px;
 
   font-family: "Poppins", monospace;
   font-size: 11pt;
@@ -64,14 +65,15 @@ body {
 }
 
 .info > img {
+  image-rendering: pixelated;
   background-color: rgba(255, 255, 255, 0.12);
-  border-radius: 300px;
+  border-radius: 8px;
   width: var(--width);
   transition: border-radius 0.2s, width 0.2s, margin 0.2s;
 }
 
 .info > img:hover {
-  border-radius: 10px;
+  border-radius: 16px;
   width: calc(var(--width) + 20px);
   margin: -10px;
   cursor: pointer;
