@@ -163,6 +163,45 @@ body {
   image-rendering: pixelated;
 }
 
+#loading {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100svh;
+ background: #232627aa;
+
+ display: none;
+ justify-content: center;
+ align-items: center;
+}
+
+#loading.active {
+  display: flex;
+}
+
+.loading {
+  width: 50px;
+  aspect-ratio: 1 / 1;
+  background: black;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 12px;
+  border-color: black white white white;
+
+  animation: spin 500ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(0deg)
+  }
+  from {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
