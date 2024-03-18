@@ -17,13 +17,7 @@ function setPokemon(pokemon) {
   pkmId.innerText = "ID: " + pokemon.id;
   pkmSprite.src = pokemon.sprites.front_default;
 
-  // pkmSprite.onclick = () => {
-  //   const cry = new Audio(
-  //     pokemon.cries.legacy ? pokemon.cries.legacy : pokemon.cries
-  //   );
-  //   cry.volume = 0.5;
-  //   cry.play();
-  // };
+  modalImg.src = pokemon.sprites.front_default;
 
   hp.value = pokemon.stats[0].base_stat;
   hpValue.innerText = pokemon.stats[0].base_stat;
@@ -62,3 +56,15 @@ search.onclick = () => {
   const name = nameInput.value.toLowerCase();
   handleSearchPokemon(name);
 };
+
+modal.onclick = (e) => {
+  e.stopPropagation();
+};
+modalContainer.onclick = () => {
+  modalContainer.animate([{ opacity: 1 }, { opacity: 0 }], {
+    duration: 100,
+  }).onfinish = () => {
+    modalContainer.classList.toggle("active");
+  };
+};
+pkmSprite.onclick = () => modalContainer.classList.toggle("active");
