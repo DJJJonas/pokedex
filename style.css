@@ -1,3 +1,26 @@
+:root {
+  --normal: #ada594;
+  --fighting: #5f2311;
+  --flying: #5d73d4;
+  --poison: #6b246e;
+  --ground: #ad8c33;
+  --rock: #ad8c33;
+  --bug: #88960e;
+  --ghost: #454593;
+  --steel: #8e8e9f;
+  --fire: #c72100;
+  --water: #0c67c2;
+  --grass: #389a02;
+  --electric: #e89503;
+  --psychic: #dc3165;
+  --ice: #6dd3f5;
+  --dragon: #4e3ba4;
+  --dark: #3c2d23;
+  --fairy: #4e3ba4;
+  --unknown: #506271;
+  --shadow: #681f94;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -202,6 +225,27 @@ body {
   border-color: black white white white;
 
   animation: spin 500ms linear infinite;
+}
+
+.types {
+  display: flex;
+  justify-content: space-around;
+  max-width: 256px;
+  margin: 0.8rem auto;
+}
+
+.types > div {
+  background: red;
+  border-radius: 8px;
+  color: white;
+  padding-inline: 1rem;
+
+  text-shadow: black 1px 1px 1px, black 1px -1px 1px, black -1px 1px 1px,
+    black -1px -1px 1px;
+}
+
+.types > div:empty {
+  display: none;
 }
 
 @keyframes spin {

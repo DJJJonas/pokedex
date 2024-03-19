@@ -8,6 +8,7 @@ export default class Pokedex {
   static clear() {
     this.setName("Digite um pokemon");
     this.setId("e aperte enter!");
+    this.setType("", "");
     this.setSprite(this.defaultSpriteSrc);
     this.setHP(rand(0, 255));
     this.setAttack(rand(0, 255));
@@ -24,6 +25,7 @@ export default class Pokedex {
     this.clear();
     this.setName(titleCase(pokemon.name));
     this.setId(pokemon.id);
+    this.setType(pokemon.types[0]?.type.name, pokemon.types[1]?.type.name);
     this.setSprite(pokemon.sprites.front_default);
     this.setHP(pokemon.stats[0].base_stat);
     this.setAttack(pokemon.stats[1].base_stat);
@@ -49,6 +51,17 @@ export default class Pokedex {
       return;
     }
     pkmId.innerText = "ID: " + id;
+  }
+
+  /**
+   * @param {string} type1
+   * @param {string} type2
+   */
+  static setType(type1, type2) {
+    type1El.innerText = type1?.toUpperCase() || "";
+    type1El.style.backgroundColor = type1 ? `var(--${type1})` : "";
+    type2El.innerText = type2?.toUpperCase() || "";
+    type2El.style.backgroundColor = type2 ? `var(--${type2})` : "";
   }
 
   /**
