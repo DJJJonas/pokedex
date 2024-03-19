@@ -49,4 +49,3 @@ class App {
 }
 
 App.init();
-App.searchPokemon("rayquaza");
