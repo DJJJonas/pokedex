@@ -36,14 +36,14 @@ function setPokemon(pokemon) {
 function handleSearchPokemon(name) {
   pkmName.innerText = "Carregando...";
   pkmId.innerText = "só um segundo!";
-  loading.classList.toggle('active', true)
+  loading.classList.toggle("active", true);
   fetchPokemon(name)
     .then((pkm) => {
-      loading.classList.toggle('active', false)
-      setPokemon(pkm)
+      loading.classList.toggle("active", false);
+      setPokemon(pkm);
     })
     .catch((e) => {
-      loading.classList.toggle('active', false)
+      loading.classList.toggle("active", false);
       pkmName.innerText = "Digite um pokemon";
       pkmId.innerText = "e aperte enter!";
       alert(e);
