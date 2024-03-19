@@ -3,7 +3,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100svh;
   color: #f5f5f5;
   background-color: #232627;
 
@@ -19,7 +19,12 @@ body {
   background-color: #121415;
   border-radius: 8px;
 
-  padding: 60px;
+  max-width: 450px;
+  width: 100%;
+
+  margin-inline: 1rem;
+  padding-inline: 2rem;
+  padding-block: 1rem;
 
   font-family: "Poppins", monospace;
 }
@@ -27,12 +32,15 @@ body {
 #nameInput {
   color: white;
   background-color: #323636;
+
   border-style: solid;
   border-color: #535657;
   border-radius: 8px;
+
   font-family: "Poppins", monospace;
   font-size: 11pt;
   text-align: center;
+
   width: var(--width);
 }
 
@@ -67,7 +75,9 @@ body {
 .info > img {
   image-rendering: pixelated;
   background-color: rgba(255, 255, 255, 0.12);
+
   border-radius: 8px;
+
   width: var(--width);
   transition: border-radius 0.2s, width 0.2s, margin 0.2s;
 }
@@ -81,9 +91,10 @@ body {
 
 .stats {
   display: grid;
-  text-align: end;
   grid-template-columns: max-content 1fr max-content;
   column-gap: 8px;
+
+  text-align: end;
 }
 
 .stats > progress {
@@ -125,11 +136,8 @@ body {
 }
 
 #modalContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100svh;
+  position: fixed;
+  inset: 0;
 
   background: rgba(0, 0, 0, 0.5);
 
@@ -145,12 +153,11 @@ body {
 }
 
 #modal {
-  min-width: 0;
-  min-height: 0;
-  width: 400px;
   aspect-ratio: 1 / 1;
+  width: 100%;
   max-width: 400px;
   max-height: 400px;
+
   background: #232627;
 
   border-radius: 8px;
@@ -164,16 +171,16 @@ body {
 }
 
 #loading {
- position: absolute;
- top: 0;
- left: 0;
- width: 100vw;
- height: 100svh;
- background: #232627aa;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100svh;
+  background: #232627aa;
 
- display: none;
- justify-content: center;
- align-items: center;
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
 #loading.active {
@@ -194,10 +201,10 @@ body {
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(0deg)
-  }
   from {
+    transform: rotate(0deg);
+  }
+  to {
     transform: rotate(360deg);
   }
 }
@@ -205,8 +212,10 @@ body {
 @keyframes fade-in {
   from {
     opacity: 0;
+    display: flex;
   }
   to {
     opacity: 1;
+    display: none;
   }
 }
