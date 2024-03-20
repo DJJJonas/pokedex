@@ -3,11 +3,12 @@ import PokeAPI from "./web/pokeapi.js";
 import Pokedex from "./components/pokedex.js";
 import Loading from "./components/loading.js";
 import { truncate } from "./util/util.js";
+import Notification from "./components/notification.js";
 
 class App {
   static init() {
     this.setupEvents();
-
+    Notification.setupEvents();
     Pokedex.clear();
   }
 
@@ -31,7 +32,7 @@ class App {
       App.searchPokemon(name);
       return;
     }
-    alert("Digite um pokémon e aperte enter!");
+    Notification.show(`Digite um pokémon`, `e aperte enter!`);
   }
 
   static async searchPokemon(name) {
@@ -49,7 +50,10 @@ class App {
         Loading.toggle(false);
         Pokedex.clear();
         const pkmName = truncate(nameInput.value, 16);
-        alert(`${pkmName} não encontrado`);
+        Notification.show(
+          "Pokémon não encontrado",
+          `Desculpe, mas o pokémon ${pkmName} não foi encontrado na base de dados.`
+        );
       });
   }
 }
