@@ -13,6 +13,6 @@ export default class PokeAPI {
     if (r.status === 200) {
       return r.json();
     }
-    throw new Error("Pokemon não encontrado");
+    throw new Error("Pokémon não encontrado");
   }
 }

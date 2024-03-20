@@ -2,6 +2,7 @@ import Modal from "./components/modal.js";
 import PokeAPI from "./web/pokeapi.js";
 import Pokedex from "./components/pokedex.js";
 import Loading from "./components/loading.js";
+import { truncate } from "./util/util.js";
 
 class App {
   static init() {
@@ -16,17 +17,21 @@ class App {
   }
 
   static setupSearchEvents() {
-    nameInput.onkeypress = (e) => {
-      if (e.key === "Enter") {
-        const name = nameInput.value.toLowerCase();
-        this.searchPokemon(name);
+    nameInput.onkeypress = (event) => {
+      if (event.key === "Enter") {
+        this.handleTextInputSearch();
       }
     };
+    search.onclick = this.handleTextInputSearch;
+  }
 
-    search.onclick = () => {
-      const name = nameInput.value.toLowerCase();
-      this.searchPokemon(name);
-    };
+  static handleTextInputSearch() {
+    const name = nameInput.value.toLowerCase().trim();
+    if (name) {
+      App.searchPokemon(name);
+      return;
+    }
+    alert("Digite um pokémon e aperte enter!");
   }
 
   static async searchPokemon(name) {
@@ -36,14 +41,15 @@ class App {
 
     Loading.toggle(true);
     PokeAPI.fetchPokemon(name)
-      .then((pkm) => {
+      .then((pokemon) => {
         Loading.toggle(false);
-        Pokedex.setPokemon(pkm);
+        Pokedex.setPokemon(pokemon);
       })
-      .catch((e) => {
+      .catch((_) => {
         Loading.toggle(false);
         Pokedex.clear();
-        alert(e);
+        const pkmName = truncate(nameInput.value, 16);
+        alert(`${pkmName} não encontrado`);
       });
   }
 }

@@ -1,12 +1,13 @@
 import Modal from "./modal.js";
 import "../types/pokemon.d.js";
+import { titleCase } from "../util/util.js";
 
 export default class Pokedex {
   static defaultSpriteSrc =
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png";
 
   static clear() {
-    this.setName("Digite um pokemon");
+    this.setName("Digite um pokémon");
     this.setId("e aperte enter!");
     this.setType("", "");
     this.setSprite(this.defaultSpriteSrc);
@@ -119,18 +120,6 @@ export default class Pokedex {
     speed.value = value;
     speedValue.innerText = value;
   }
-}
-
-/**
- * @param {string} str
- * @returns string
- */
-function titleCase(str) {
-  function titleWord() {
-    return str.charAt(0).toUpperCase() + str.substring(1).toLowerCase();
-  }
-
-  return str.split(" ").map(titleWord).join(" ");
 }
 
 /**
