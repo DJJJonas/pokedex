@@ -85,6 +85,26 @@ export default class PokemonHistory {
   }
 
   /**
+   * @param {string} itemId
+   * @param {number} to - use 1 to swap with the next item or -1 to swap the the one before
+   */
+  static swapItem(itemId, to) {
+    const items = this.getItems();
+    const index = items.findIndex((item) => item.id === itemId);
+    const newIndex = index + to;
+    if (
+      index < 0 ||
+      index >= items.length ||
+      newIndex < 0 ||
+      newIndex >= items.length
+    )
+      return;
+
+    [items[index], items[newIndex]] = [items[newIndex], items[index]];
+    this.set(items);
+  }
+
+  /**
    * @param {PokemonHistoryItem[]} item
    */
   static set(item) {

@@ -401,6 +401,7 @@ body {
   padding: 6px 6px;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 1.4rem;
 }
 
 #sidebarHistory > li i:hover {
@@ -411,6 +412,16 @@ body {
   color: #db1f48;
   font-weight: 900;
   background: #414c4f;
+}
+
+.sidebarItemIcons {
+  display: grid;
+  text-align: center;
+}
+
+.sidebarArrowIcon {
+  grid-column: 1/3;
+  padding: 0 !important;
 }
 
 .material-icons {

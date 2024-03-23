@@ -80,11 +80,21 @@ export default class Sidebar {
     const li = document.createElement("li");
     const sprite = createImg(pokemon.sprites.front_default, pokemon.name);
     const name = createElementWithText("span", pokemonName);
+
+    const upIcon = createIcon("keyboard_arrow_up");
     const favoriteIcon = createIcon(isFavorite);
     const deleteIcon = createIcon("delete");
-    const icons = createDivWith(favoriteIcon, deleteIcon);
+    const downIcon = createIcon("keyboard_arrow_down");
+
+    upIcon.classList.add("sidebarArrowIcon");
+    downIcon.classList.add("sidebarArrowIcon");
+
+    const icons = createDivWith(upIcon, favoriteIcon, deleteIcon, downIcon);
+    icons.classList.add("sidebarItemIcons");
 
     li.onclick = () => Pokedex.setPokemon(item.pokemon);
+    upIcon.onclick = this.createMoveHandler(item, -1);
+    downIcon.onclick = this.createMoveHandler(item, 1);
     favoriteIcon.onclick = this.createFavoriteHandler(item);
     deleteIcon.onclick = this.createDeleteHandler(item);
 
@@ -93,6 +103,16 @@ export default class Sidebar {
     li.appendChild(icons);
 
     sidebarHistory.appendChild(li);
+  }
+
+  /**
+   * @param {string} item
+   * @param {number} to
+   */
+  static createMoveHandler(item, to) {
+    return () => {
+      PokemonHistory.swapItem(item.id, to);
+    };
   }
 
   /**
