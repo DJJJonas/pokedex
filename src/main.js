@@ -92,7 +92,6 @@ class App {
         Loading.toggle(false);
         Pokedex.setPokemon(pokemon);
         PokemonHistory.save(pokemon);
-        Sidebar.refresh();
       })
       .catch((_) => {
         Loading.toggle(false);
