@@ -321,12 +321,20 @@ body {
   left: -9999px;
   height: 100svh;
   background: #232627;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr;
   padding: 16px 12px 0 6px;
   min-width: 256px;
   z-index: 1;
   overflow-y: auto;
+}
+
+#sidebar > span {
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  height: fit-content;
+  align-self: center;
+  padding-left: 0.6rem;
 }
 
 .sidebarIcons {
@@ -354,6 +362,7 @@ body {
 }
 
 #sidebarHistory {
+  grid-column: 1 / 3;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -393,7 +402,7 @@ body {
 }
 
 #sidebarHistory > li > span {
-  font-size: 1.1rem;
+  font-size: 1rem;
   padding-left: 8px;
 }
 
