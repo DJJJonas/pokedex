@@ -29,7 +29,7 @@ body {
   min-height: 100svh;
   color: #f5f5f5;
   background-color: #232627;
-  }
+}
 
 .container {
   display: flex;
@@ -59,7 +59,7 @@ body {
   border-radius: 8px;
 
   font-family: "Poppins", monospace;
-  font-size: 11pt;
+  font-size: 1rem;
   text-align: center;
 
   width: 256px;
@@ -75,25 +75,24 @@ body {
   color: white;
   background-color: #323636;
 
-  padding: 8px;
-  margin-top: 10px;
-
   border-style: solid;
   border-color: #535657;
   border-radius: 8px;
+  border-width: 2px;
 
-  font-family: "Poppins", monospace;
-  font-size: 11pt;
-
-  opacity: 0;
-  transition: opacity 0.2s;
+  padding: 2px;
+  font-size: 1.4rem;
 }
 
 #search:hover {
-  opacity: 1;
+  background: #535a5d;
 }
 
-.info > img {
+#search:active {
+  background: #232627;
+}
+
+#pkmSprite {
   image-rendering: pixelated;
   background-color: rgba(255, 255, 255, 0.12);
 
@@ -103,17 +102,19 @@ body {
   transition: border-radius 0.2s, width 0.2s, margin 0.2s;
 }
 
-.info > img:hover {
+#pkmSprite:hover {
   border-radius: 16px;
   width: 276px;
   margin: -10px;
   cursor: pointer;
+  box-shadow: #00000090 0 0 6px;
 }
 
 .stats {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   column-gap: 8px;
+  font-size: 0.9rem;
 
   text-align: end;
   text-wrap: nowrap;
@@ -124,18 +125,22 @@ body {
   width: 100%;
 }
 
+.stats > progress:hover {
+  height: 100%;
+}
+
 .stats > progress + span {
   text-align: start;
 }
 
 #pkmName {
-  font-size: 32pt;
+  font-size: 2.2rem;
   margin: 0;
 }
 
 #pkmId {
   margin: 0;
-  font-size: 12pt;
+  font-size: 1rem;
 }
 
 #hp {
@@ -161,7 +166,6 @@ body {
 #speed {
   accent-color: pink;
 }
-
 
 #modal {
   outline: none;
@@ -192,8 +196,6 @@ body {
 #modal::backdrop {
   background: rgba(0, 0, 0, 0.5);
 }
-
-
 
 #loading {
   position: fixed;
@@ -278,7 +280,7 @@ body {
 
 #notificationClose {
   cursor: pointer;
-  
+
   font-size: 1.6rem;
   font-style: normal;
 
@@ -288,6 +290,130 @@ body {
 #notificationDescription {
   grid-column: 1 / 3;
   color: #dbdbdb;
+}
+
+#sidebarOpenMenu {
+  cursor: pointer;
+
+  top: 16px;
+  left: 16px;
+
+  padding: 4px;
+  position: fixed;
+  background: #3b4042;
+  color: #dbdbdb;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: #535a5d;
+  border-radius: 8px;
+}
+
+#sidebarOpenMenu:hover {
+  background: #535a5d;
+}
+
+#sidebarOpenMenu:active {
+  background: #232627;
+}
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 100svh;
+  background: #232627;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 12px 0 6px;
+  min-width: 256px;
+  z-index: 1;
+  overflow-y: auto;
+}
+
+.sidebarIcons {
+  position: sticky;
+  padding: 8px 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  border-radius: 8px;
+  background: inherit;
+}
+
+.sidebarIcons > i {
+  background: #3b4042;
+  border-radius: 8px;
+  padding: 4px;
+  cursor: pointer;
+  transition: background 90ms;
+}
+
+.sidebarIcons > i:hover {
+  background: #535d5c;
+}
+
+#sidebarHistory {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#sidebarHistory > li {
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 8px;
+  border-color: #535a5d;
+  background: #3b4042;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  transition: background 90ms;
+}
+
+#sidebarHistory > li:hover {
+  background: #535a5d;
+}
+
+#sidebarHistory > li:active {
+  background: #232627;
+}
+
+#sidebarHistory > li > img {
+  aspect-ratio: 3 / 4;
+  image-rendering: pixelated;
+  background: #535a5d;
+  object-fit: cover;
+  object-position: -10px 0px;
+  width: 60px;
+}
+
+#sidebarHistory > li > span {
+  font-size: 1.1rem;
+  padding-left: 8px;
+}
+
+#sidebarHistory > li i {
+  padding: 6px 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#sidebarHistory > li i:hover {
+  background: #6b7478;
+}
+
+#sidebarHistory > li i:active {
+  color: #db1f48;
+  font-weight: 900;
+  background: #414c4f;
 }
 
 @keyframes spin {

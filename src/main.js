@@ -4,17 +4,63 @@ import Pokedex from "./components/pokedex.js";
 import Loading from "./components/loading.js";
 import { truncate } from "./util/util.js";
 import Notification from "./components/notification.js";
+import Sidebar from "./components/sidebar.js";
+import PokemonHistory from "./components/history.js";
 
 class App {
   static init() {
     this.setupEvents();
-    Notification.setupEvents();
+    this.setupObservers();
+
     Pokedex.clear();
+    Sidebar.refresh();
   }
 
   static setupEvents() {
+    this.setupAutoCompleteEvent();
     this.setupSearchEvents();
     Modal.setupEvents();
+    Notification.setupEvents();
+    Sidebar.setupEvents();
+  }
+
+  static setupObservers() {
+    PokemonHistory.subscribe(Sidebar);
+  }
+
+  static setupAutoCompleteEvent() {
+    const charLimit = 3;
+    nameInput.oninput = () => {
+      const input = nameInput.value;
+      if (input.length <= charLimit) {
+        this.setAutoCompleteDatalist([]);
+        return;
+      }
+
+      // Take easy on pokeapi by not quering unnecessarily
+      if (
+        nameDatalist.childElementCount > 0 &&
+        nameDatalist.childElementCount <= 10
+      ) {
+        return;
+      }
+
+      PokeAPI.queryName(input.toLowerCase().replaceAll(" ", "-")).then(
+        (names) => {
+          this.setAutoCompleteDatalist(names);
+        }
+      );
+    };
+  }
+
+  /**
+   * @param {string[]} list
+   */
+  static setAutoCompleteDatalist(list) {
+    nameDatalist.innerHTML = "";
+    list.forEach((o) => {
+      nameDatalist.innerHTML += `<option value="${o}">${o}<option/>`;
+    });
   }
 
   static setupSearchEvents() {
@@ -45,6 +91,8 @@ class App {
       .then((pokemon) => {
         Loading.toggle(false);
         Pokedex.setPokemon(pokemon);
+        PokemonHistory.save(pokemon);
+        Sidebar.refresh();
       })
       .catch((_) => {
         Loading.toggle(false);
