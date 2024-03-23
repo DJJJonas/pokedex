@@ -73,6 +73,9 @@ class App {
   }
 
   static handleTextInputSearch() {
+    /**
+     * @type {string}
+     */
     const name = nameInput.value.toLowerCase().trim();
     if (name) {
       App.searchPokemon(name);
@@ -81,6 +84,9 @@ class App {
     Notification.show(`Digite um pokémon`, `e aperte enter!`);
   }
 
+  /**
+   * @param {string} name
+   */
   static async searchPokemon(name) {
     Pokedex.clear();
     Pokedex.setName("Carregando...");

@@ -23,9 +23,6 @@ export default class PokemonHistory {
     this.subscribers.forEach((s) => s.update());
   }
 
-  /**
-   * @param {Pokemon} pokemon
-   */
   static clear() {
     localStorage.setItem("history", "[]");
   }
