@@ -283,8 +283,6 @@ body {
 
   font-size: 1.6rem;
   font-style: normal;
-
-  user-select: none;
 }
 
 #notificationDescription {
@@ -403,7 +401,6 @@ body {
   padding: 6px 6px;
   border-radius: 8px;
   cursor: pointer;
-  user-select: none;
 }
 
 #sidebarHistory > li i:hover {
@@ -414,6 +411,10 @@ body {
   color: #db1f48;
   font-weight: 900;
   background: #414c4f;
+}
+
+.material-icons {
+  user-select: none;
 }
 
 @keyframes spin {
