@@ -1,5 +1,4 @@
 import "../types/pokemonHistoryItem.d.js";
-import Notification from "./notification.js";
 
 export default class PokemonHistory {
   /**
@@ -19,8 +18,13 @@ export default class PokemonHistory {
     this.subscribers.push(observer);
   }
 
-  static notify() {
-    this.subscribers.forEach((s) => s.update());
+  /**
+   *
+   * @param {{type: string,
+   *          trigger: string}} context
+   */
+  static notify(context) {
+    this.subscribers.forEach((s) => s.update(context));
   }
 
   static clear() {
@@ -50,7 +54,10 @@ export default class PokemonHistory {
     const items = this.getItems();
     const index = items.findIndex((item) => item.id === itemId);
     if (index === -1) {
-      Notification.show("Erro ao deletar", "Pokémon não encontrado.");
+      this.notify({
+        type: "error",
+        trigger: "delete",
+      });
       return;
     }
     items.splice(index, 1);
@@ -66,7 +73,10 @@ export default class PokemonHistory {
     const items = this.getItems();
     const index = items.findIndex((item) => item.id === itemId);
     if (index === -1) {
-      Notification.show("Erro ao favoritar", "Pokémon não encontrado.");
+      this.notify({
+        type: "error",
+        trigger: "favorite",
+      });
       return;
     }
     items[index].isFavorite =

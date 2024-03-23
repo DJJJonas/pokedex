@@ -26,6 +26,7 @@ class App {
 
   static setupObservers() {
     PokemonHistory.subscribe(Sidebar);
+    PokemonHistory.subscribe(Notification);
   }
 
   static setupAutoCompleteEvent() {
