@@ -125,6 +125,7 @@ export default class Sidebar {
    * This method is used by the notify method in
    * PokemonHistory class so the sidebar refresh
    * everytime history is updated
+   * @see {PokemonHistory}
    */
   static update() {
     this.refresh();
