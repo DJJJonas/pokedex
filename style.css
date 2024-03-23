@@ -318,7 +318,7 @@ body {
 #sidebar {
   position: fixed;
   top: 0;
-  left: -100%;
+  left: -9999px;
   height: 100svh;
   background: #232627;
   display: flex;
