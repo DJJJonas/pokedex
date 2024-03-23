@@ -337,7 +337,7 @@ body {
   padding-left: 0.6rem;
 }
 
-.sidebarIcons {
+.sidebar-icons {
   position: sticky;
   padding: 8px 0;
   top: 0;
@@ -349,7 +349,7 @@ body {
   background: inherit;
 }
 
-.sidebarIcons > i {
+.sidebar-icons > i {
   background: #3b4042;
   border-radius: 8px;
   padding: 4px;
@@ -357,7 +357,7 @@ body {
   transition: background 90ms;
 }
 
-.sidebarIcons > i:hover {
+.sidebar-icons > i:hover {
   background: #535d5c;
 }
 
