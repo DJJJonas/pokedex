@@ -337,6 +337,7 @@ body {
   padding-left: 0.6rem;
 }
 
+/* Buttons delete sweep/close sidebar */
 .sidebar-icons {
   position: sticky;
   padding: 8px 0;
@@ -369,6 +370,7 @@ body {
   gap: 8px;
 }
 
+/* History item */
 #sidebarHistory > li {
   cursor: pointer;
   font-family: "Poppins", sans-serif;
@@ -392,6 +394,7 @@ body {
   background: #232627;
 }
 
+/* Pokémon sprite */
 #sidebarHistory > li > img {
   aspect-ratio: 3 / 4;
   image-rendering: pixelated;
@@ -401,9 +404,17 @@ body {
   width: 60px;
 }
 
+/* Pokémon name */
 #sidebarHistory > li > span {
   font-size: 1rem;
   padding-left: 8px;
+}
+
+/* Buttons favorite/delete/move */
+
+.sidebar-item-icons {
+  display: grid;
+  text-align: center;
 }
 
 #sidebarHistory > li i {
@@ -423,16 +434,12 @@ body {
   background: #414c4f;
 }
 
-.sidebarItemIcons {
-  display: grid;
-  text-align: center;
-}
-
-.sidebarArrowIcon {
+.sidebar-arrow-icon {
   grid-column: 1/3;
   padding: 0 !important;
 }
 
+/* Fix Google material icons being able to be selected */
 .material-icons {
   user-select: none;
 }

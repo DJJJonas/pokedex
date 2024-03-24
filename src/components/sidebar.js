@@ -86,11 +86,11 @@ export default class Sidebar {
     const deleteIcon = createIcon("delete");
     const downIcon = createIcon("keyboard_arrow_down");
 
-    upIcon.classList.add("sidebarArrowIcon");
-    downIcon.classList.add("sidebarArrowIcon");
+    upIcon.classList.add("sidebar-arrow-icon");
+    downIcon.classList.add("sidebar-arrow-icon");
 
     const icons = createDivWith(upIcon, favoriteIcon, deleteIcon, downIcon);
-    icons.classList.add("sidebarItemIcons");
+    icons.classList.add("sidebar-item-icons");
 
     li.onclick = () => Pokedex.setPokemon(item.pokemon);
     upIcon.onclick = this.createMoveHandler(item, -1);
