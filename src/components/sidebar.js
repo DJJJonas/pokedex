@@ -110,8 +110,9 @@ export default class Sidebar {
    * @param {number} to
    */
   static createMoveHandler(item, to) {
-    return () => {
+    return (e) => {
       PokemonHistory.swapItem(item.id, to);
+      e.stopPropagation();
     };
   }
 
@@ -119,8 +120,9 @@ export default class Sidebar {
    * @param {PokemonHistoryItem} item
    */
   static createFavoriteHandler(item) {
-    return () => {
+    return (e) => {
       PokemonHistory.setFavorite(item.id);
+      e.stopPropagation();
     };
   }
 
@@ -128,8 +130,9 @@ export default class Sidebar {
    * @param {PokemonHistoryItem} item
    */
   static createDeleteHandler(item) {
-    return () => {
+    return (e) => {
       PokemonHistory.delete(item.id);
+      e.stopPropagation();
     };
   }
 
