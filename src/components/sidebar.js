@@ -36,9 +36,17 @@ export default class Sidebar {
         fill: "forwards",
         easing: "ease-in-out",
       }
-    );
+    ).onfinish = () =>
+      document.body.addEventListener("click", closeSideBarOutsideClick);
   }
 
+  static closeSideBarOutsideClick(event) {
+    // Only when clicking outside the sidebar
+    if (sidebar.contains(event.target)) {
+      return;
+    }
+    Sidebar.closeMenuHandler();
+  }
   /**
    * Deletes only the pokemons that are not set as favorite
    */
@@ -68,6 +76,8 @@ export default class Sidebar {
         easing: "ease-in-out",
       }
     );
+
+    document.body.removeEventListener("click", closeSideBarOutsideClick);
   }
   /**
    * @param {PokemonHistoryItem} item
