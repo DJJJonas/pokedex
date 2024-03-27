@@ -37,10 +37,13 @@ export default class Sidebar {
         easing: "ease-in-out",
       }
     ).onfinish = () =>
-      document.body.addEventListener("click", closeSideBarOutsideClick);
+      document.body.addEventListener(
+        "click",
+        Sidebar.closeSideBarOutsideClickEvent
+      );
   }
 
-  static closeSideBarOutsideClick(event) {
+  static closeSideBarOutsideClickEvent(event) {
     // Only when clicking outside the sidebar
     if (sidebar.contains(event.target)) {
       return;
@@ -77,7 +80,10 @@ export default class Sidebar {
       }
     );
 
-    document.body.removeEventListener("click", closeSideBarOutsideClick);
+    document.body.removeEventListener(
+      "click",
+      Sidebar.closeSideBarOutsideClickEvent
+    );
   }
   /**
    * @param {PokemonHistoryItem} item
