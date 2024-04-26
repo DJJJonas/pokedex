@@ -1,22 +1,33 @@
-# Pokédex
+<h1 align="center">
+  <br>
+  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pokédex" width="200"></a>
+  <br>
+  Pokédex
+  <br>
+</h1>
 
-Access https://djjjonas.github.io/pokedex
+<h4 align="center">A friendly minimalist Pokédex to save your favorites pokémons.</h4>
 
-## About
+<p align="center">
+  <a href="#key-features">Key Features</a> •
+  <a href="#Visit-website">Visit website</a>
+</p>
 
-This project was initially made for fun as a minimalist front-end
-for the [PokéAPI](https://pokeapi.co/). As of I'm writing this,
-features are constantly being added just as a way of warming my skills up because this is what I love the most: code.
+![image](https://github.com/DJJJonas/pokedex/assets/48167880/9630cc71-43da-4b01-8795-26a9b81dca84)
 
-## Features
+## Key Features
 
-The list of implemented features are:
+- Search Pokémons (Input give auto completed suggestions after 4 characters)
+- Inspect previous searched Pokémons in the sidebar
+- Favorite, organize and delete Pokémons on the sidebar history
+- Quickly delete all Pokémons that are not marked as favorite on sidebar
 
-- Search auto-complete
-- Sidebar
-  - Delete non-favorite history
-  - History
-    - Favorite searches
-    - Organize order
+<img src="https://github.com/DJJJonas/pokedex/assets/48167880/0d531c96-b8c3-42f2-9e49-a59ff33a6e12" />
 
-More features are being added over time.
+## Visit website
+
+Access by [clicking here](https://djjjonas.github.io/pokedex/)
+
+## You may also like...
+
+- [Toaxt](https://github.com/DJJJonas/toaxt) - A dead simple toast lib for JS
