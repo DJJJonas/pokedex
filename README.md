@@ -9,24 +9,44 @@
 <h4 align="center">A friendly minimalist Pokédex to save your favorites pokémons.</h4>
 
 <p align="center">
-  <a href="#key-features">Key Features</a> •
-  <a href="#Visit-website">Visit website</a>
+  <a href="#features">Features</a> •
+  <a href="#visit-website">Visit website</a> •
+  <a href="#todo">TODO</a>
 </p>
 
 ![image](https://github.com/DJJJonas/pokedex/assets/48167880/9630cc71-43da-4b01-8795-26a9b81dca84)
 
-## Key Features
+<h2 id="features">Features <img align="center" width="50" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/144.png"></h2>
+<img align="right" src="https://github.com/DJJJonas/pokedex/assets/48167880/6064f7bb-f8fc-48d9-94c5-9695004ab19d" />
 
-- Search Pokémons (Input give auto completed suggestions after 4 characters)
-- Inspect previous searched Pokémons in the sidebar
-- Favorite, organize and delete Pokémons on the sidebar history
-- Quickly delete all Pokémons that are not marked as favorite on sidebar
+- Search for Pokémons by name (Auto complete suggestions after 4 characters)
+- Click on the Pokémon's image to inspect it
+- Inspect Pokémon's name, ID and types
+- Pokémon's stats
+  + Healt (HP)
+  + Attack
+  + Defence
+  + Special Attack (Sp. Attack)
+  + Special Defence (Sp. Defence)
+  + Speed
+- On sidebar
+  + Inspect previous searched Pokémons on the sidebar
+  + Favorite Pokémons
+  + Organize Pokémons
+  + Delete Pokémons
+  + Delete all non-favorite Pokémons
 
-<img src="https://github.com/DJJJonas/pokedex/assets/48167880/0d531c96-b8c3-42f2-9e49-a59ff33a6e12" />
+<h2 id="visit-website">Visit website <img align="center" width="50" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png"></h2>
 
-## Visit website
+Access the Pokédex by [clicking here](https://djjjonas.github.io/pokedex/)
 
-Access by [clicking here](https://djjjonas.github.io/pokedex/)
+<h2 id="todo">TODO <img align="center" width="50" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/145.png"></h2>
+
+- [ ] Button hover tooltips
+- [ ] "Switch language to english" button
+- [ ] Sprite image carousel
+- [ ] Shiny Pokémon visualization
+- [ ] "Evolves to" button
 
 ## You may also like...
 
